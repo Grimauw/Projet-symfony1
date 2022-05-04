@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
@@ -33,7 +35,7 @@ class HomeController extends AbstractController
         if (!$article) {
             $this->redirectToRoute("home");
         }
-        return $this->render(' home/show.html.twig', [
+        return $this->render('home/show.html.twig', [
             "article" => $article
         ]);
     }
