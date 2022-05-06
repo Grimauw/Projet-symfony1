@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Article;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -40,9 +41,13 @@ class Category
      */
     private $articles;
 
-    public function __construct()
+    private $repoCategory;
+
+    
+ public function __construct(ArticleRepository $repoArticle, CategoryRepository $repoCategory)
     {
-        $this->articles = new ArrayCollection();
+        $this->repoArticle = $repoArticle;
+        $this->repoCategory = $repoCategory;
     }
 
     public function getId(): ?int
