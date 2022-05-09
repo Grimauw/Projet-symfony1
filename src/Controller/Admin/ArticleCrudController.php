@@ -31,4 +31,5 @@ class ArticleCrudController extends AbstractCrudController
         ];
     }
     
+    
 }
