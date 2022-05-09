@@ -30,7 +30,19 @@
     </ul>
           <ul class="nav navbar-nav navbar-right mr-3">
         <li>
-          <a href="{{ path('security_register')}}" class="btn btn-success">Inscription</a>
+
+{% if app.user %}
+          <li>
+            <a href="{{ path('security_logout')}}" class="btn btn-danger ml-3">Déconnexion</a>
+          </li>
+        {% else %}
+          <li>
+            <a href="{{ path('security_register')}}" class="btn btn-success">Inscription</a>
+          </li>
+          <li>
+            <a href="{{ path('security_login')}}" class="btn btn-info ml-3">Connexion</a>
+          </li>
+        {% endif %}
         </li>
       </ul>
     <form class="form-inline my-2 my-lg-0">

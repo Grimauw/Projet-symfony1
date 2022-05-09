@@ -14,7 +14,7 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\FirstName
+                class: App\Entity\User
                 property: email
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
@@ -24,6 +24,12 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            form_login:
+                login_path: security_login
+                check_path: security_login
+            logout:
+                path: security_logout
+                target: home
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
